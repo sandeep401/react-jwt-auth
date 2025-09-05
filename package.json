@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "@mui/icons-material": "^5.15.0",
+    "@mui/material": "^5.15.0",
+    "axios": "^1.6.0",
+    "history": "^5.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

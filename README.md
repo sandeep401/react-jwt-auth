@@ -1,12 +1,44 @@
-# React + Vite
+# React JWT Authentication Example
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates how to implement JWT-based authentication in a React application using Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React + Vite setup with HMR
+- JWT authentication flow (login, logout, protected routes)
+- Minimal ESLint configuration
+- Example API integration
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Install dependencies:**
+   ```
+   npm install
+   ```
+
+2. **Run the development server:**
+   ```
+   npm run dev
+   ```
+
+3. **Build for production:**
+   ```
+   npm run build
+   ```
+
+## Authentication Flow
+
+- Users log in with credentials.
+- JWT token is stored securely (e.g., in localStorage).
+- Protected routes require a valid token.
+- Logout clears the token.
+
+## Useful Links
+
+- [Vite Documentation](https://vitejs.dev/)
+- [React Documentation](https://react.dev/)
+- [JWT Introduction](https://jwt.io/introduction/)
+
+## ESLint
+
+For production, consider expanding the ESLint configuration and using TypeScript. See the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for more
