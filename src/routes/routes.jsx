@@ -7,6 +7,10 @@ import Dashboard from "../pages/Dashboard";
 
 export const router = createBrowserRouter([
   {
+    path: "/",
+    element: <SignupForm />,
+  },
+  {
     path: "/signup",
     element: <SignupForm />,
   },
