@@ -4,12 +4,12 @@ import api from "../api/api";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children, navigate }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [refreshToken, setRefreshToken] = useState(
     localStorage.getItem("refreshToken") || null
   );
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const tokenExpiry = localStorage.getItem("tokenExpiry");
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
       : Date.now() + expiresIn * 1000;
     localStorage.setItem("tokenExpiry", expiryTime);
 
-    navigate("/dashboard");
+    if(navigate) navigate("/dashboard");
   };
 
   const logout = () => {
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("tokenExpiry");
-    navigate("/login");
+    if(navigate) navigate("/login");
   };
 
   const refreshAccessToken = async () => {

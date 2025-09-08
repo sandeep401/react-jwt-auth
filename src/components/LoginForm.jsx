@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { useForm } from "./useForm";
-import { validate } from "./validate";
+import { useForm } from "../hooks/useForm";
+import { validate } from "../utils/validate";
 
 import {
   Box,
@@ -17,7 +17,7 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import api from "../api/api";
 
 export default function LoginForm() {
@@ -34,7 +34,7 @@ export default function LoginForm() {
     severity: "success",
   });
   const [loading, setLoading] = useState(false);
- 
+
   const [rememberMe, setRememberMe] = useState(false);
 
   const togglePassword = () => setShowPassword(!showPassword);
@@ -135,8 +135,13 @@ export default function LoginForm() {
           </Button>
         </form>
         <FormControlLabel
-            control={<Checkbox checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />}
-            label="Remember Me"
+          control={
+            <Checkbox
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+          }
+          label="Remember Me"
         />
       </Paper>
       <Snackbar

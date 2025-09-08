@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useForm } from "./useForm";
-import { validate } from "./validate";
+import { useForm } from "../hooks/useForm";
+import { validate } from "../utils/validate";
 
 import {
   Box,
@@ -34,7 +34,7 @@ export default function SignupForm() {
   });
   const [loading, setLoading] = useState(false);
 
-const [rememberMe, setRememberMe] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
   const togglePassword = () => setShowPassword(!showPassword);
@@ -91,6 +91,8 @@ const [rememberMe, setRememberMe] = useState(false);
       alignItems="center"
       minHeight="100vh"
       bgcolor="#f5f5f5"
+      p={2}
+      width={"100vw"}
     >
       <Paper elevation={4} sx={{ p: 4, width: "100%", maxWidth: 450 }}>
         <Typography variant="h5" mb={3} textAlign="center">
@@ -154,9 +156,14 @@ const [rememberMe, setRememberMe] = useState(false);
             {loading ? "Submitting..." : "Submit"}
           </Button>
         </form>
-        <FormControlLabel 
-          control={<Checkbox checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />} 
-          label="Remember Me" 
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+          }
+          label="Remember Me"
         />
       </Paper>
       <Snackbar

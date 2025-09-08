@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 const api = axios.create({
-  baseURL: "https://your-api.com",
+  baseURL: "https://your-api.com", // replace with your backend URL
   headers: { "Content-Type": "application/json" },
 });
 
@@ -29,7 +29,7 @@ api.interceptors.response.use(
         const refreshToken = localStorage.getItem("refreshToken");
         if (!refreshToken) throw new Error("No refresh token");
 
-        const response = await axios.post("https://your-api.com/refresh-token", { refreshToken });
+        const response = await axios.post("https://your-api.com/refresh-token", { refreshToken });  // replace with your backend URL
         const { token: newToken, expiresIn } = response.data;
 
         localStorage.setItem("token", newToken);
